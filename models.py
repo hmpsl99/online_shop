@@ -1,5 +1,5 @@
 from datetime import datetime
-from itertools import product
+from enum import unique
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy import Column,Integer,String,DateTime
 from database import  Base
@@ -9,8 +9,8 @@ class User(Base):
     __tablename__ = 'user'
     
     id = Column(Integer,primary_key = True, index = True)
-    username = Column(String)
-    email = Column(String)
+    username = Column(String, unique= True)
+    email = Column(String, unique = True)
     password = Column(String)
 
     basket = relationship('Basket',back_populates = 'user')
