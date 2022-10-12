@@ -16,3 +16,9 @@ def show(id:int,db:Session):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"Product with the id {id} is not available")
     return product
+
+def show_all(db:Session, skip: int = 0, limit: int = 100):
+    products = db.query(models.Product).all()
+    if not products:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="There is no product in the database")
+    return products

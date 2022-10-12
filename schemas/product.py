@@ -11,6 +11,12 @@ class ShowProduct(BaseModel):
 
     class Config:
         orm_mode = True
+    
+class ShowProducts(BaseModel):
+    products : List[ShowProduct]
+
+    class Config:
+        orm_mode = True
 
 class AddProduct(BaseModel):
     title: str
