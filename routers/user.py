@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from authentication import oauth2
-import database, schemas, models
+import database
 from schemas import user as user_schema
 from sqlalchemy.orm import Session
 from fastapi import APIRouter,Depends,status
