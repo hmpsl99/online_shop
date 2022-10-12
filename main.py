@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from fastapi import FastAPI
 import  models
 from database import engine
-from  routers import  user, authentication
+from  routers import  user, authentication, product
 
 import models
 from database import SessionLocal, engine
@@ -14,6 +14,7 @@ app = FastAPI()
 
 app.include_router(user.router)
 app.include_router(authentication.router)
+app.include_router(product.router)
 
 
 

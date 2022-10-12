@@ -27,3 +27,19 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     email: Optional[str] = None
+
+
+class ShowProduct(BaseModel):
+    id : int
+    title : str
+    price : int 
+    creation_time : datetime
+
+    class Config:
+        orm_mode = True
+
+class AddProduct(BaseModel):
+    title: str
+    price: int 
+
+    
