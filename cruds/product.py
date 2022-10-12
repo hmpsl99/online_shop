@@ -1,8 +1,9 @@
 from sqlalchemy.orm import Session
-import models, schemas
+from schemas import  product as product_schema
+import models
 from fastapi import HTTPException,status
 
-def create(request: schemas.AddProduct,db:Session):
+def create(request: product_schema.AddProduct,db:Session):
     new_product = models.Product(title=request.title,price=request.price)
     db.add(new_product)
     db.commit()
